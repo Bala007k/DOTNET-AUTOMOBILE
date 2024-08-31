@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .clk {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color:blue;
+        margin: 0;
+    }
+
+    .clock {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 5px white;
+        border-radius: 50%;
+        background: blue;
+    }
+
+    .hand {
+        position: absolute;
+        background: blue;
+        border-radius: 50%;
+        transform-origin: bottom center;
+    }
+
+    .hour {
+        width: 6px;
+        height: 50px;
+        top: 50px;
+        left: 50%;
+        transform: rotate(90deg);
+    }
+
+    .minute {
+        width: 4px;
+        height: 70px;
+        top: 30px;
+        left: 50%;
+        transform: rotate(90deg);
+    }
+
+    .second {
+        width: 2px;
+        height: 90px;
+        top: 10px;
+        left: 50%;
+        background: red;
+        transform: rotate(90deg);
+    }
+    h1:hover {
+        background-color:white
+        box-shadow: deepskyblue 9px 9px 9px 9px;
+        letter-spacing: 4px;
+        font-variant: all-petite-caps;
+        color: black;
+        
+        text-shadow: 5px 5px 7px skyblue, 2px 2px 7px skyblue;
+    }
+
+    h1 {
+        box-shadow: grey 9px 9px 9px 9px;
+        letter-spacing: 4px;
+        font-variant: all-petite-caps;
+        color: whitesmoke;
+        box-shadow: grey 9px 9px 9px 9px;
+        text-shadow: 5px 5px 7px white, 2px 2px 7px white;
+    }
+    #cal{
+        box-shadow: grey 9px 9px 9px 9px;
+        letter-spacing: 4px;
+        font-variant: all-petite-caps;
+        color: whitesmoke;
+        box-shadow: grey 9px 9px 9px 9px;
+        text-shadow: 5px 5px 7px white, 2px 2px 7px white;
+    }
+</style>
+
+<body style="background-color:black; text-align:center; ">
+<div  class="text-center">
+        <h1 style=color: whitesmoke;
+         
+             class="display-4">
+            Welcome
+        </h1>
+    <p style="color:white">Have A Great Day</p>
+</div>
+    <br />
+    <div id="cal">CALCULATOR</div>
+    <div>
+        <input type="text" id="call" placeholder="Enter first number">
+        <input type="text" id="called" placeholder="Enter second number">
+        <br />
+        <br />
+        <button id="addButton" style="box-sizing:border-box">+</button>
+        <button id="sub" style="box-sizing:border-box">-</button>
+        <button id="mult" style="box-sizing:border-box">x</button>
+        <button id="div" style="box-sizing:border-box">/</button>
+
+    </div>
+    <div>
+        <br />
+        <span style="margin:auto; color:azure;" id="results">Answer</span>
+    </div>
+    <br /><br /><br />
+    <div><span id="bala" style= color:aliceblue; font-size:larger;">THINK POSITIVE</span></div>
+    <div id="clk">
+    <div class="clock" id="clock">
+        <div class="hand hour" id="hour"></div>
+        <div class="hand minute" id="minute"></div>
+        <div class="hand second" id="second"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+
+    <script>
+        document.getElementById("addButton").addEventListener("click", function () {
+            var inputcall = Number(document.getElementById("call").value);
+            var inputcalled = Number(document.getElementById("called").value);
+
+            if (isNaN(inputcall) || isNaN(inputcalled)) {
+                document.getElementById("results").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            var tot = inputcall + inputcalled;
+            document.getElementById("results").innerHTML = tot;
+        });
+        document.getElementById("sub").addEventListener("click", function () {
+            var inputcall = Number(document.getElementById("call").value);
+            var inputcalled = Number(document.getElementById("called").value);
+
+            if (isNaN(inputcall) || isNaN(inputcalled)) {
+                document.getElementById("results").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            var tot = inputcall - inputcalled;
+            document.getElementById("results").innerHTML = tot;
+        });
+        document.getElementById("mult").addEventListener("click", function () {
+            var inputcall = Number(document.getElementById("call").value);
+            var inputcalled = Number(document.getElementById("called").value);
+
+            if (isNaN(inputcall) || isNaN(inputcalled)) {
+                document.getElementById("results").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            var tot = inputcall * inputcalled;
+            document.getElementById("results").innerHTML = tot;
+        });
+        document.getElementById("div").addEventListener("click", function () {
+            var inputcall = Number(document.getElementById("call").value);
+            var inputcalled = Number(document.getElementById("called").value);
+
+            if (isNaN(inputcall) || isNaN(inputcalled)) {
+                document.getElementById("results").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            var tot = inputcall / inputcalled;
+            document.getElementById("results").innerHTML = tot;
+        });
+        var a = document.getElementById("bala").innerHTML;
+        var b = ['NETWORK WELL', 'EXCERSIZE DAILY', 'EAT HEALTHY', 'WORK HARD', 'STAY STRONG', 'BUILD FAITH', 'WORRY LESS', 'FEEL HAPPY', 'VOLUNTEER FREELY', 'LOVE ALWAYS', 'THINK POSITIVE'];
+        var i = 0;
+        setInterval(function () {
+            if (i >= b.length)
+                i = 0;
+            document.getElementById("bala").innerHTML = b[i];
+            i++;
+        
+        
+        },1000)
+    </script>
+
+</body>
